@@ -7,7 +7,7 @@ buildscript {
 
     dependencies {
         classpath("org.gradle.api.plugins:gradle-tomcat-plugin:1.2.5")
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
     }
 }
 
@@ -23,23 +23,25 @@ allprojects {
     ext {
         junitVersion = "4.12"
 
-        tomcatVersion = "8.0.23"
+        tomcatVersion = "8.0.24"
 
-        jacksonVersion = "2.5.3"
+        jacksonVersion = "2.6.0"
         log4j2Version = "2.3"
+        jbossLoggingVersion = "3.3.0.Final"
         slf4jVersion = "1.7.12"
-        sitemeshVersion = "3.0.0"
-        jodatimeVersion = "2.8"
+        guavaVersion = "18.0"
+        sitemeshVersion = "3.0.1"
+        jodatimeVersion = "2.8.1"
         ehcacheVersion = "2.10.0"
-        mysqlVersion = "5.1.35"
-        shiroVersion = "1.2.3"
-        druidVersion = "1.0.14"
+        mysqlVersion = "5.1.36"
+        shiroVersion = "1.2.4"
+        druidVersion = "1.0.15"
         mybatisVersion = "3.3.0"
-        mybatisSpringVersion = "1.2.2"
+        mybatisSpringVersion = "1.2.3"
 
         webjarsJqueryVersion = "2.1.4"
-        webjarsBootstrapVersion = "3.3.4"
-        webjarsFontAwesomeVersion = "4.3.0"
+        webjarsBootstrapVersion = "3.3.5"
+        webjarsFontAwesomeVersion = "4.3.0-4"
 
         commonsIoVersion = "2.4"
         commonsLangVersion = "3.4"
@@ -47,9 +49,7 @@ allprojects {
         commonsFileuploadVersion = "1.3.1"
         commonsBeanutilsVersion = "1.9.2"
 
-        springVersion = "4.1.6.RELEASE"
-        springBootVersion = "1.2.3.RELEASE"
-        springSecurityVersion = "4.0.1.RELEASE"
+        springBootVersion = "1.2.5.RELEASE"
     }
 }
 
@@ -116,6 +116,7 @@ project("spring") {
         compile("org.apache.logging.log4j:log4j-api:${log4j2Version}")
         compile("org.apache.logging.log4j:log4j-core:${log4j2Version}")
         compile("org.apache.logging.log4j:log4j-slf4j-impl:${log4j2Version}")
+        compile("org.jboss.logging:jboss-logging:${jbossLoggingVersion}")
 
         // commons
         compile("org.apache.commons:commons-lang3:${commonsLangVersion}")
@@ -127,6 +128,7 @@ project("spring") {
         // third party
         compile("com.alibaba:druid:${druidVersion}")
         compile("org.sitemesh:sitemesh:${sitemeshVersion}")
+        compile("com.google.guava:guava:${guavaVersion}")
         compile("net.sf.ehcache:ehcache:${ehcacheVersion}")
         compile("joda-time:joda-time:${jodatimeVersion}")
         compile("mysql:mysql-connector-java:${mysqlVersion}")
@@ -134,7 +136,7 @@ project("spring") {
         compile("org.apache.shiro:shiro-spring:${shiroVersion}")
         compile("org.apache.shiro:shiro-web:${shiroVersion}")
         compile("org.apache.shiro:shiro-ehcache:${shiroVersion}") {
-            exclude group: 'net.sf.ehcache:ehcache', module: 'ehcache-core'
+            exclude group: 'net.sf.ehcache', module: 'ehcache-core'
         }
         compile("org.mybatis:mybatis:${mybatisVersion}")
         compile("org.mybatis:mybatis-spring:${mybatisSpringVersion}")

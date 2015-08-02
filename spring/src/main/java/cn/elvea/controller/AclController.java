@@ -4,10 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin/acl")
+@RequestMapping("acl")
 public class AclController {
-    @RequestMapping
+    @RequestMapping("index")
     public String index() {
+        return "acl/index";
+    }
+
+    @RequestMapping("update")
+    public String update() {
         return "acl/index";
     }
 }

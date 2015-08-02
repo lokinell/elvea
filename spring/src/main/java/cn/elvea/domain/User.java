@@ -5,10 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class User extends IdEntity {
+    // 用户状态 - 禁用
     public static final String STATUS_DISABLED = "disabled";
+    // 用户状态 - 正常
     public static final String STATUS_ENABLED = "enabled";
 
+    // 系统用户
     public static final String SOURCE_SYSTEM = "system";
+    // 普通用户
+    public static final String SOURCE_NORMAL = "normal";
+    // 系统会员
+    public static final String SOURCE_MEMBER = "member";
 
     private Long id;
     private String username;

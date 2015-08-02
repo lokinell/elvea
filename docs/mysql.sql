@@ -3,6 +3,7 @@ grant all privileges on * to test@localhost
 identified by 'test'
 with grant option;
 */
+
 /* 建立数据库 */
 drop database if exists spring;
 
