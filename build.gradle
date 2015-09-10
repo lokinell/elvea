@@ -6,7 +6,6 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.gradle.api.plugins:gradle-tomcat-plugin:1.2.5")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
     }
 }
@@ -151,13 +150,7 @@ project("spring") {
         compile("javax.servlet:javax.servlet-api")
         compile("javax.servlet.jsp:javax.servlet.jsp-api:2.3.0")
 
-        // tomcat
-        providedRuntime("org.springframework.boot:spring-boot-starter-tomcat") {
-            exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-core'
-            exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-el'
-            exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-logging-juli'
-            exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-websocket'
-        }
+       
         providedRuntime("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}")
         providedRuntime("org.apache.tomcat.embed:tomcat-embed-el:${tomcatVersion}")
         providedRuntime("org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}")
